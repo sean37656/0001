@@ -64,11 +64,12 @@
         .text-green-700 { color: #047857; }
         .nav-links:hover { color: #2563eb; } /* Blue 600 */
 
-        /* --- Dark Mode Overrides --- */
+        /* --- Dark Mode Overrides (Custom JS-driven rules) --- */
         body.dark {
             background-color: #111827; /* Gray 900 */
             color: #f9fafb; /* Gray 50 */
         }
+        /* 這組規則是造成衝突的來源，但我們暫時保留它，因為其他非動態的 bg-white 元素依賴它 */
         body.dark .bg-white, 
         body.dark .bg-slate-50,
         body.dark .bg-slate-100 {
@@ -129,13 +130,18 @@
                     <a href="#section-iii" class="nav-links text-slate-600 hover:text-blue-600 transition">匯率模擬與口訣</a>
                 </div>
                 
+                <!-- 社交媒體按鈕區域 (已美化) -->
                 <div class="flex space-x-3 ml-2">
                     
+                    <!-- Instagram 按鈕 -->
+                    <!-- 請將下方 href 內的網址換成您自己的 IG 連結 -->
                     <a href="https://www.instagram.com/your_ig_handle/" target="_blank" title="追蹤我的 Instagram" 
                        class="group flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
                         <i class="fa-brands fa-instagram text-xl group-hover:scale-110 transition-transform"></i>
                     </a>
 
+                    <!-- GitHub 按鈕 -->
+                    <!-- 請將下方 href 內的網址換成您自己的 GitHub 連結 -->
                     <a href="https://github.com/your_github_username" target="_blank" title="我的 GitHub 主頁" 
                        class="group flex items-center justify-center w-10 h-10 rounded-full bg-slate-200 text-slate-700 hover:bg-slate-800 hover:text-white dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-white dark:hover:text-slate-900 transition-all duration-300 shadow-sm hover:shadow-md">
                         <i class="fa-brands fa-github text-xl group-hover:scale-110 transition-transform"></i>
@@ -176,7 +182,8 @@
                         </tr>
                     </thead>
                     <tbody id="function-matrix-body">
-                        </tbody>
+                        <!-- JS Generated Content -->
+                    </tbody>
                 </table>
             </div>
 
@@ -335,7 +342,8 @@
                                 </tr>
                             </thead>
                             <tbody id="impact-body">
-                                </tbody>
+                                <!-- JS Generated Content -->
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -524,12 +532,16 @@
                 const text = isGood ? 'text-green-700 dark:text-green-300 font-bold' : 'text-rose-700 dark:text-rose-300 font-bold';
                 const icon = isGood ? '😊 利！' : '😭 弊！';
                 
+                // 🟢 [解決方案]：明確為 <td> 加上 bg-white 和 dark:bg-gray-800，
+                // 這樣它們就不再依賴外部的 CSS 規則，
+                // 確保 'dark:text-gray-50' (白字) 永遠會搭配 'dark:bg-gray-800' (深色背景)。
+                
                 return `
                     <tr class="border-b transition hover:bg-slate-100 dark:hover:bg-gray-700">
-                        <td class="px-6 py-3 font-medium text-slate-900 dark:text-gray-50">${role}</td>
-                        <td class="px-6 py-3 text-center"><span class="px-3 py-1 rounded text-sm font-bold ${ntColor}">${ntStatus}</span></td>
+                        <td class="px-6 py-3 font-medium text-slate-900 bg-white dark:bg-gray-800 dark:text-gray-50">${role}</td>
+                        <td class="px-6 py-3 text-center bg-white dark:bg-gray-800"><span class="px-3 py-1 rounded text-sm font-bold ${ntColor}">${ntStatus}</span></td>
                         <td class="px-6 py-3 ${bg} ${text}">${icon}</td>
-                        <td class="px-6 py-3 text-slate-600 dark:text-gray-300 text-sm">${reason}</td>
+                        <td class="px-6 py-3 text-slate-600 bg-white dark:bg-gray-800 dark:text-gray-300 text-sm">${reason}</td>
                     </tr>
                 `;
             };
@@ -543,7 +555,8 @@
                 html += createRow('進口商 (買外國貨)', '進口成本提高', '臺幣變弱，買美金要花更多錢。', false);
                 html += createRow('出國旅遊的人', '旅費變貴', '臺幣變弱，換外幣不划算。', false);
             } else {
-                 html = `<tr><td colspan="4" class="px-6 py-8 text-center text-slate-500 dark:text-gray-400 font-medium">匯率穩定在 30。請拖動上方滑桿來模擬變動。</td></tr>`;
+                 // 🟢 [解決方案]：同樣為基準點的 <td> 加上背景
+                 html = `<tr><td colspan="4" class="px-6 py-8 text-center text-slate-500 dark:text-gray-400 font-medium bg-white dark:bg-gray-800">匯率穩定在 30。請拖動上方滑桿來模擬變動。</td></tr>`;
             }
 
             impactBody.innerHTML = html;
