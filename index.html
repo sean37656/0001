@@ -183,7 +183,7 @@
                             <span class="font-bold text-blue-600">購買力：</span>貨幣的價值是由其所能購買的**商品數量**決定。
                         </li>
                         <li class="p-3 bg-rose-50 rounded-lg border border-rose-200">
-                            <span class="font-bold text-rose-700">⚠️ 通膨判斷：</span>政府濫發 $\rightarrow$ 貨幣數量過多 $\rightarrow$ <span class="font-black">貨幣持續貶值 (錢變薄)</span> $\rightarrow$ **物價持續上漲** (搶購物資、儲蓄意願降低)。
+                            <span class="font-bold text-rose-700">⚠️ 通膨判斷：</span>政府濫發 ➡️ 貨幣數量過多 ➡️ <span class="font-black">貨幣持續貶值 (錢變薄)</span> ➡️ **物價持續上漲** (搶購物資、儲蓄意願降低)。
                         </li>
                     </ul>
                 </div>
@@ -194,7 +194,7 @@
                         <canvas id="inflationChart"></canvas>
                     </div>
                     <p class="text-center text-sm text-slate-500 mt-2">
-                        假設 $100$ 元能買 $10$ 個麵包 $\rightarrow$ 通膨後只能買 $\lt 10$ 個 (購買力下降)。
+                        假設 $100$ 元能買 $10$ 個麵包 ➡️ 通膨後只能買 $\lt 10$ 個 (購買力下降)。
                     </p>
                 </div>
             </div>
@@ -303,10 +303,10 @@
                     <div class="bg-white p-6 rounded-xl shadow-md border">
                         <h3 class="font-black text-xl mb-2 text-rose-600">口訣速記 (必背)</h3>
                         <p class="text-lg font-bold leading-relaxed text-slate-700 mb-2">
-                            <span class="text-blue-600">數字 $\downarrow$</span> $\implies$ <span class="bg-blue-100 px-1 rounded">臺幣升值 $\uparrow$</span> $\implies$ **利**進口
+                            <span class="text-blue-600">數字 ⬇️</span> $\implies$ <span class="bg-blue-100 px-1 rounded">臺幣升值 🆙</span> $\implies$ **利**進口
                         </p>
                         <p class="text-lg font-bold leading-relaxed text-slate-700">
-                            <span class="text-rose-600">數字 $\uparrow$</span> $\implies$ <span class="bg-rose-100 px-1 rounded">臺幣貶值 $\downarrow$</span> $\implies$ **利**出口
+                            <span class="text-rose-600">數字 🆙</span> $\implies$ <span class="bg-rose-100 px-1 rounded">臺幣貶值 ⬇️</span> $\implies$ **利**出口
                         </p>
                     </div>
                 </div>
@@ -491,13 +491,13 @@
             if (rate < 30) {
                 status = "臺幣升值 (Appreciation) ⬆️";
                 colorClass = "bg-blue-100 text-blue-800 border-blue-300 dark:bg-blue-900 dark:text-blue-300 dark:border-blue-700";
-                slogan = "匯率數字 $\\downarrow$ $\\implies$ 臺幣戰鬥力 $\\uparrow$";
+                slogan = "匯率數字 ⬇️💹 臺幣戰鬥力 🆙";
                 ntStatus = "升值 ⬆️";
                 ntColor = "bg-blue-500 text-white dark:bg-blue-400 dark:text-black";
             } else if (rate > 30) {
                 status = "臺幣貶值 (Depreciation) ⬇️";
                 colorClass = "bg-rose-100 text-rose-800 border-rose-300 dark:bg-rose-900 dark:text-rose-300 dark:border-rose-700";
-                slogan = "匯率數字 $\\uparrow$ $\\implies$ 臺幣戰鬥力 $\\downarrow$";
+                slogan = "匯率數字 🆙💹 臺幣戰鬥力 ⬇️";
                 ntStatus = "貶值 ⬇️";
                 ntColor = "bg-rose-500 text-white dark:bg-rose-400 dark:text-black";
             } else {
