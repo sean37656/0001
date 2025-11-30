@@ -133,16 +133,14 @@
                 <!-- 社交媒體按鈕區域 (已美化) -->
                 <div class="flex space-x-3 ml-2">
                     
-                    <!-- Instagram 按鈕 -->
-                    <!-- 請將下方 href 內的網址換成您自己的 IG 連結 -->
-                    <a href="https://www.instagram.com/your_ig_handle/" target="_blank" title="追蹤我的 Instagram" 
+                    <!-- 🟢 [連結更新]：已換成您的 IG 連結 -->
+                    <a href="https://www.instagram.com/studynotes_tw" target="_blank" title="追蹤我的 Instagram" 
                        class="group flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
                         <i class="fa-brands fa-instagram text-xl group-hover:scale-110 transition-transform"></i>
                     </a>
 
-                    <!-- GitHub 按鈕 -->
-                    <!-- 請將下方 href 內的網址換成您自己的 GitHub 連結 -->
-                    <a href="https://github.com/your_github_username" target="_blank" title="我的 GitHub 主頁" 
+                    <!-- 🟢 [連結更新]：已換成您的 GitHub 連結 -->
+                    <a href="https://github.com/sean37656" target="_blank" title="我的 GitHub 主頁" 
                        class="group flex items-center justify-center w-10 h-10 rounded-full bg-slate-200 text-slate-700 hover:bg-slate-800 hover:text-white dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-white dark:hover:text-slate-900 transition-all duration-300 shadow-sm hover:shadow-md">
                         <i class="fa-brands fa-github text-xl group-hover:scale-110 transition-transform"></i>
                     </a>
@@ -420,8 +418,8 @@
                 html += `
                     <tr class="border-b transition hover:bg-slate-100 dark:hover:bg-gray-700">
                         <td class="px-6 py-3 font-medium text-blue-700 dark:text-blue-400">${item.func}</td>
-                        <!-- 🟢 [RWD 修正]：將 text-slate-600 改為 text-slate-700，使其在淺色模式更易讀 -->
-                        <td class="px-6 py-3 text-slate-700 dark:text-gray-300">${item.keyword} / <span class="font-mono">${item.example}</span></td>
+                        <!-- 🟢 [字體修正]：將 text-slate-700 改為 text-slate-800，使其在淺色模式更深、更易讀 -->
+                        <td class="px-6 py-3 text-slate-800 dark:text-gray-300">${item.keyword} / <span class="font-mono">${item.example}</span></td>
                         <td class="px-6 py-3">
                             <button class="text-amber-600 dark:text-amber-400 font-bold text-sm bg-amber-100 dark:bg-amber-800 dark:hover:bg-amber-700 px-3 py-1 rounded-full hover:bg-amber-200 transition" 
                                 onclick="toggleTrap(this, ${index})">
