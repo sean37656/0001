@@ -1,50 +1,752 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>國中公民 (翰林版) 三上五單元：重點筆記</title>
-  <meta name="description" content="國中公民三上第五單元（金融貨幣）重點整理與互動學習工具。" />
-  <meta name="author" content="Sean" />
-  <link rel="stylesheet" href="assets/style.css" />
-  <link rel="icon" href="assets/favicon.png" />
-  <!-- Tailwind + Chart.js via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國中公民 (翰林版) 三上五單元：重點筆記</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .section-header {
+            border-left: 6px solid;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        /* Custom animation for dynamic content */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        /* --- Light Mode Defaults (Primary styles) --- */
+        body {
+            background-color: #f8fafc; /* Slate 50 */
+            color: #1e293b; /* Slate 800 */
+        }
+        .bg-white { background-color: white; }
+        .bg-slate-50 { background-color: #f8fafc; }
+        .text-slate-800 { color: #1e293b; }
+        .text-slate-600 { color: #475569; }
+        .text-slate-500 { color: #64748b; }
+        .border { border-color: #e2e8f0; }
+        
+        /* Highlight backgrounds */
+        .bg-amber-100 { background-color: #fef3c7; }
+        .bg-amber-50 { background-color: #fffbeb; }
+        .bg-rose-50 { background-color: #fff1f2; }
+        .bg-green-50 { background-color: #f0fdf4; }
+        .text-amber-800 { color: #92400e; }
+        .text-rose-700 { color: #be123c; }
+        .text-green-700 { color: #047857; }
+        .nav-links:hover { color: #2563eb; } /* Blue 600 */
+
+        /* --- Dark Mode Overrides --- */
+        body.dark {
+            background-color: #111827; /* Gray 900 */
+            color: #f9fafb; /* Gray 50 */
+        }
+        body.dark .bg-white, 
+        body.dark .bg-slate-50,
+        body.dark .bg-slate-100 {
+            background-color: #1f2937; /* Gray 800 */
+            border-color: #374151; /* Gray 700 */
+        }
+        body.dark .text-slate-800, body.dark .text-slate-900 {
+            color: #f9fafb;
+        }
+        body.dark .text-slate-600, body.dark .text-slate-500 {
+            color: #d1d5db; /* Gray 300 */
+        }
+        body.dark .border {
+            border-color: #374151;
+        }
+        /* Dark Mode Highlights */
+        body.dark .bg-amber-100 { 
+            background-color: #451a03; 
+            color: #fcd34d; /* Amber 300 */
+            border-color: #fbbf24;
+        }
+        body.dark .bg-amber-50 {
+            background-color: #2c1606;
+            border-color: #fbbf24;
+        }
+        body.dark .bg-rose-50 { 
+            background-color: #450a0a;
+            border-color: #f87171;
+        }
+        body.dark .bg-green-50 { 
+            background-color: #064e3b;
+            border-color: #34d399;
+        }
+        body.dark .text-amber-800 { color: #fcd34d; }
+        body.dark .text-rose-700 { color: #fca5a5; }
+        body.dark .text-green-700 { color: #a7f3d0; }
+        body.dark .nav-links { color: #d1d5db; }
+        body.dark .nav-links:hover { color: #60a5fa; } /* Blue 400 */
+        body.dark .text-blue-600 { color: #60a5fa; } /* Adjusting primary blue for better contrast */
+        body.dark .border-blue-500 { border-color: #60a5fa; }
+        body.dark .bg-blue-600 { background-color: #3b82f6; } /* Slightly lighter blue for hero */
+    </style>
 </head>
-
 <body class="text-slate-800 bg-slate-50">
-  <!-- navigation -->
-  <nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center space-x-3">
-        <span class="text-2xl text-blue-600 font-extrabold">📘</span>
-        <h1 class="text-xl font-black text-slate-800">國中公民 (翰林) — 三上第五單元</h1>
-      </div>
-      <div class="hidden md:flex space-x-6 text-sm font-medium">
-        <a href="#section-i" class="text-slate-600 hover:text-blue-600 transition">貨幣本質與通膨</a>
-        <a href="#section-ii" class="text-slate-600 hover:text-blue-600 transition">塑膠貨幣防呆</a>
-        <a href="#section-iii" class="text-slate-600 hover:text-blue-600 transition">匯率模擬與口訣</a>
-      </div>
-    </div>
-  </nav>
 
-  <!-- header -->
-  <header class="bg-blue-600 text-white pt-16 pb-12 px-4 text-center">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-black mb-3">
-        國中公民 (翰林版) 三上五單元：重點筆記
-      </h1>
-      <p class="text-blue-100 text-lg md:text-xl font-light">
-        用互動方式掌握考試重點！
-      </p>
-      <div class="mt-4 flex justify-center gap-3">
-        <button id="toggle-dark" class="px-3 py-1 rounded bg-slate-800 text-white text-sm">
-          深色模式
-        </button>
-        <a id="deploy-guide" href="#readme" class="px-3 py-1 rounded border text-sm">
-          學習指引
-        </a>
-      </div>
-    </div>
-  </header>
+    <!-- Navbar: 包含章節導覽連結 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl text-blue-600 font-extrabold">🏦</span>
+                <h1 class="text-xl font-black text-slate-800">國中公民 (翰林版) 三上五單元：重點筆記</h1>
+            </div>
+            <!-- 章節導覽連結 (已保留) -->
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#section-i" class="nav-links text-slate-600 hover:text-blue-600 transition">貨幣本質與通膨</a>
+                <a href="#section-ii" class="nav-links text-slate-600 hover:text-blue-600 transition">塑膠貨幣防呆</a>
+                <a href="#section-iii" class="nav-links text-slate-600 hover:text-blue-600 transition">匯率模擬與口訣</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header/Hero -->
+    <header class="bg-blue-600 text-white pt-16 pb-12 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-black mb-3">國中公民 (翰林版) 三上五單元：重點筆記</h1>
+            <p class="text-blue-100 text-lg md:text-xl font-light">完全涵蓋考試陷阱、數據分析與核心概念。透過互動，將筆記轉化為記憶！</p>
+            
+            <!-- 僅保留深色模式切換按鈕 -->
+            <div class="mt-4 flex justify-center gap-3">
+                <button id="toggle-dark" class="px-3 py-1 rounded bg-slate-800 text-white text-sm hover:bg-slate-700 transition">切換深色模式</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12 space-y-16">
+
+        <!-- I. 貨幣的本質與功能 -->
+        <section id="section-i" class="scroll-mt-20">
+            <div class="section-header border-blue-500">
+                <h2 class="text-2xl md:text-3xl font-bold">I. 貨幣的本質與功能</h2>
+                <p class="text-slate-600 mt-1">從功能核心定義到法定貨幣的價值來源，考試最基本的得分點。</p>
+            </div>
+
+            <!-- Function Matrix -->
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden mb-8">
+                <table class="w-full text-left">
+                    <thead class="bg-slate-50 text-slate-500 uppercase text-sm">
+                        <tr>
+                            <th class="px-6 py-3 w-1/4">功能核心定義</th>
+                            <th class="px-6 py-3 w-1/4">關鍵詞 (速記)範例</th>
+                            <th class="px-6 py-3 w-1/2">考試陷阱 / 觀念強化 (點擊觀看)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="function-matrix-body">
+                        <!-- Content dynamically generated via JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Legal Tender & Inflation -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-6 rounded-xl shadow-md border h-full">
+                    <h3 class="text-xl md:text-2xl font-bold text-amber-600 mb-4 flex items-center">
+                        <span class="mr-2 text-3xl">🚩</span> 法定貨幣與通膨陷阱
+                    </h3>
+                    <ul class="space-y-3 text-slate-700 text-base">
+                        <li>
+                            <span class="font-bold text-blue-600">發行機構：</span>我國由**中央銀行**發行 (考試常誤導為財政部或民間銀行)。
+                        </li>
+                        <li>
+                            <span class="font-bold text-blue-600">價值來源：</span>本身**無價值** (僅紙張)，價值由**法律強制賦予**。因此，不能拒收。
+                        </li>
+                        <li>
+                            <span class="font-bold text-blue-600">購買力：</span>貨幣的價值是由其所能購買的**商品數量**決定。
+                        </li>
+                        <li class="p-3 bg-rose-50 rounded-lg border border-rose-200">
+                            <span class="font-bold text-rose-700">⚠️ 通膨判斷：</span>政府濫發 $\rightarrow$ 貨幣數量過多 $\rightarrow$ <span class="font-black">貨幣持續貶值 (錢變薄)</span> $\rightarrow$ **物價持續上漲** (搶購物資、儲蓄意願降低)。
+                        </li>
+                    </ul>
+                </div>
+                <!-- Inflation Chart Simulation -->
+                <div class="bg-white p-4 rounded-xl shadow-md border">
+                    <h3 class="text-xl font-semibold mb-3 text-center">通膨前後購買力模擬</h3>
+                    <div class="chart-container">
+                        <canvas id="inflationChart"></canvas>
+                    </div>
+                    <p class="text-center text-sm text-slate-500 mt-2">
+                        假設 $100$ 元能買 $10$ 個麵包 $\rightarrow$ 通膨後只能買 $\lt 10$ 個 (購買力下降)。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- II. 貨幣替代品：塑膠貨幣與電子支付 -->
+        <section id="section-ii" class="scroll-mt-20">
+            <div class="section-header border-amber-500">
+                <h2 class="text-2xl md:text-3xl font-bold">II. 貨幣替代品：塑膠貨幣與電子支付</h2>
+                <p class="text-slate-600 mt-1">考試必考陷阱：所有支付工具的本質，以及它們與法定貨幣的根本區別。</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden">
+                <!-- Tabs -->
+                <div class="flex border-b border-slate-200 font-bold text-lg">
+                    <button onclick="switchTab('credit')" id="btn-credit" class="flex-1 py-4 text-center text-blue-600 border-b-2 border-blue-500 transition">
+                        💳 信用卡 (延後支付)
+                    </button>
+                    <button onclick="switchTab('stored')" id="btn-stored" class="flex-1 py-4 text-center text-slate-500 hover:bg-slate-50 transition">
+                        🚌 儲值卡 (預付制度)
+                    </button>
+                    <button onclick="switchTab('mobile')" id="btn-mobile" class="flex-1 py-4 text-center text-slate-500 hover:bg-slate-50 transition">
+                        📱 行動支付 (便利介面)
+                    </button>
+                </div>
+                
+                <div class="p-8">
+                    <div class="bg-amber-100 p-4 rounded-lg border border-amber-300 mb-6 font-bold text-center animate-fade-in">
+                        📢 核心觀念：這三者**皆非**法定貨幣！它們僅是支付工具，最終仍需以新臺幣結算。
+                    </div>
+
+                    <!-- Credit Card Content -->
+                    <div id="content-credit" class="block animate-fade-in space-y-4">
+                        <h3 class="text-xl font-bold text-blue-600">本質：先享受，後付款 (延後支付)</h3>
+                        <p class="text-slate-700">銀行先代墊款項，消費者需在指定日期還款。具備債務清償功能。</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-rose-50 rounded-lg border border-rose-200">
+                                <h4 class="font-bold text-rose-700">主要風險 / 陷阱</h4>
+                                <p class="text-sm">卡奴、超額消費、未按時還款將影響**個人信用紀錄**。</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                                <h4 class="font-bold text-slate-700">法規限制 (學生必考)</h4>
+                                <p class="text-sm">正卡須滿 20 歲；學生總額度不得超過 $\mathbf{2}$ 萬元。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stored Value Card Content -->
+                    <div id="content-stored" class="hidden animate-fade-in space-y-4">
+                        <h3 class="text-xl font-bold text-emerald-600">本質：先儲值，後消費 (預付制度)</h3>
+                        <p class="text-slate-700">如悠遊卡、禮券。預先存入價值，消費時從中扣除。</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-rose-50 rounded-lg border border-rose-200">
+                                <h4 class="font-bold text-rose-700">主要風險 / 陷阱</h4>
+                                <p class="text-sm">遺失金額損失；業者倒閉時，儲值金可能無法全額取回。</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                                <h4 class="font-bold text-slate-700">法規保障 (重點)</h4>
+                                <p class="text-sm">預付型卡片 (如禮券) 主要受**《消費者保護法》**的保障。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Payment Content -->
+                    <div id="content-mobile" class="hidden animate-fade-in space-y-4">
+                        <h3 class="text-xl font-bold text-purple-600">本質：便利介面</h3>
+                        <p class="text-slate-700">如 LINE Pay, Apple Pay。它只是將銀行帳戶或信用卡「綁定」的便利操作介面。</p>
+                        <div class="p-4 bg-slate-100 rounded-lg border border-slate-300">
+                            <h4 class="font-bold text-slate-700">核心觀念</h4>
+                            <p class="text-sm">交易的本質並未改變，它依賴背後綁定的信用卡或儲值卡的機制。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- III. 國際貿易與匯率 -->
+        <section id="section-iii" class="scroll-mt-20">
+            <div class="section-header border-rose-500">
+                <h2 class="text-2xl md:text-3xl font-bold">III. 國際貿易與匯率變動決策模擬</h2>
+                <p class="text-slate-600 mt-1">匯率變化是必考的綜合判斷題。透過模擬，掌握升值貶值對進出口商的影響。</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Controls & Logic -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-md border">
+                        <h3 class="font-bold text-xl mb-4 text-rose-600">📉 匯率模擬控制 (1 USD = NTD)</h3>
+                        <p class="text-sm text-slate-500 mb-2">
+                            當前匯率：1 美金 換 <span id="rate-display" class="font-black text-3xl text-blue-600">30</span> 臺幣
+                        </p>
+                        
+                        <input type="range" id="rate-slider" min="25" max="35" value="30" step="1" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer mb-4">
+                        
+                        <div class="flex justify-between text-xs font-bold">
+                            <span class="text-blue-500">25 (數字小)</span>
+                            <span class="text-rose-500">35 (數字大)</span>
+                        </div>
+
+                        <div class="mt-4 p-4 rounded-xl text-center transition-colors duration-300 border" id="status-box">
+                            <h4 class="text-xl font-black" id="status-text">基準點</h4>
+                            <p class="text-sm mt-1" id="status-slogan"></p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border">
+                        <h3 class="font-black text-xl mb-2 text-rose-600">口訣速記 (必背)</h3>
+                        <p class="text-lg font-bold leading-relaxed text-slate-700 mb-2">
+                            <span class="text-blue-600">數字 $\downarrow$</span> $\implies$ <span class="bg-blue-100 px-1 rounded">臺幣升值 $\uparrow$</span> $\implies$ **利**進口
+                        </p>
+                        <p class="text-lg font-bold leading-relaxed text-slate-700">
+                            <span class="text-rose-600">數字 $\uparrow$</span> $\implies$ <span class="bg-rose-100 px-1 rounded">臺幣貶值 $\downarrow$</span> $\implies$ **利**出口
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visualization & Impact Table -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Chart -->
+                    <div class="bg-white p-4 rounded-xl shadow-md border">
+                        <h3 class="text-xl font-semibold mb-3 text-center">NTD/USD 匯率走勢模擬</h3>
+                        <div class="chart-container">
+                            <canvas id="exchangeChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Impact Table -->
+                    <div class="bg-white rounded-xl shadow-md border overflow-hidden">
+                        <table class="w-full text-sm text-left">
+                            <thead class="text-xs text-slate-500 uppercase bg-slate-50">
+                                <tr>
+                                    <th class="px-6 py-3 w-1/4">交易角色</th>
+                                    <th class="px-6 py-3 w-1/4">臺幣狀態</th>
+                                    <th class="px-6 py-3 w-1/4">影響利弊</th>
+                                    <th class="px-6 py-3 w-1/4">核心判斷</th>
+                                </tr>
+                            </thead>
+                            <tbody id="impact-body">
+                                <!-- Dynamic Content -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Central Bank Trap Exclusion (已保留但無導覽按鈕) -->
+        <section id="cb-trap" class="scroll-mt-20">
+            <div class="section-header border-green-500">
+                <h2 class="text-2xl md:text-3xl font-bold">中央銀行職責排除陷阱</h2>
+                <p class="text-slate-600 mt-1">哪些是央行的責任？哪些不是？</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-green-50 p-6 rounded-xl border">
+                    <h3 class="font-bold text-xl text-green-700 flex items-center mb-3">
+                        <span class="mr-2 text-2xl">✅</span> 央行職責 (是)
+                    </h3>
+                    <ul class="space-y-2 text-sm text-green-800">
+                        <li class="flex items-start">
+                            <span class="mr-2 text-lg">💰</span> 穩定我國物價
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-lg">🖨️</span> 控制新臺幣發行量
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-lg">📈</span> 注意外匯市場變動 (非直接干預)
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-rose-50 p-6 rounded-xl border">
+                    <h3 class="font-bold text-xl text-rose-700 flex items-center mb-3">
+                        <span class="mr-2 text-2xl">❌</span> 考試陷阱 (非)
+                    </h3>
+                    <ul class="space-y-2 text-sm text-rose-800">
+                        <li class="flex items-start">
+                            <span class="mr-2 text-lg">🇺🇸</span> <span class="font-bold">維持美金幣值的穩定</span> (主要負責本國貨幣，對他國貨幣無直接職權)
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2 text-lg">👨‍⚖️</span> 制定《消費者保護法》
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-slate-300 py-8 text-center mt-12">
+        <p class="text-sm">版權所有 &copy; Studynotes_tw</p>
+        <p class="text-xs mt-2 text-slate-500">考試成功！</p>
+    </footer>
+
+    <script>
+        
+        const coreData = {
+            functions: [
+                { keyword: "買賣時作為中間人", func: "交易媒介", example: "買參考書付 $300$ 元", trap: "考試陷阱：與『價值衡量』區分。交易媒介著重在**交換行為**本身。" },
+                { keyword: "標示商品價格", func: "價值衡量", example: "一本書定價 $300$ 元", trap: "考試陷阱：著重在**計價單位**，用來**比較**商品貴或便宜。" },
+                { keyword: "保存財富，延後消費", func: "價值儲藏", example: "將薪水存入銀行", trap: "考試陷阱：儲存購買力，儲蓄、黃金、不動產等也具備此功能。" },
+                { keyword: "償還債務或繳稅", func: "債務清償", example: "繳交信用卡費", trap: "考試陷阱：著重在**未來支付承諾**的履行，如還款或繳稅。" }
+            ]
+        };
+
+        let exchangeChartInstance = null;
+        let inflationChartInstance = null;
+        
+        // --- Core Functions: Function Matrix ---
+
+        function initFunctionMatrix() {
+            const body = document.getElementById('function-matrix-body');
+            let html = '';
+            
+            coreData.functions.forEach((item, index) => {
+                html += `
+                    <tr class="border-b transition hover:bg-slate-100 dark:hover:bg-gray-700">
+                        <td class="px-6 py-3 font-medium text-blue-700 dark:text-blue-400">${item.func}</td>
+                        <td class="px-6 py-3 text-slate-600 dark:text-gray-300">${item.keyword} / <span class="font-mono">${item.example}</span></td>
+                        <td class="px-6 py-3">
+                            <button class="text-amber-600 dark:text-amber-400 font-bold text-xs bg-amber-100 dark:bg-amber-800 dark:hover:bg-amber-700 px-3 py-1 rounded-full hover:bg-amber-200 transition" 
+                                onclick="toggleTrap(this, ${index})">
+                                點我看陷阱 💡
+                            </button>
+                            <div id="trap-content-${index}" class="hidden mt-2 p-2 bg-amber-50 dark:bg-amber-900 dark:text-amber-300 rounded-lg text-amber-800 text-sm animate-fade-in">${item.trap}</div>
+                        </td>
+                    </tr>
+                `;
+            });
+            body.innerHTML = html;
+        }
+
+        function toggleTrap(button, index) {
+            const content = document.getElementById(`trap-content-${index}`);
+            const isHidden = content.classList.contains('hidden');
+            
+            content.classList.toggle('hidden');
+            
+            if (isHidden) {
+                button.innerText = '收起陷阱 🧠';
+                button.classList.remove('bg-amber-100', 'dark:bg-amber-800');
+                button.classList.add('bg-amber-200', 'dark:bg-amber-700');
+            } else {
+                button.innerText = '點我看陷阱 💡';
+                button.classList.remove('bg-amber-200', 'dark:bg-amber-700');
+                button.classList.add('bg-amber-100', 'dark:bg-amber-800');
+            }
+        }
+
+        // --- Core Functions: Plastic Money Tabs ---
+        function switchTab(type) {
+            const tabs = {
+                credit: { btn: 'btn-credit', content: 'content-credit', color: 'blue' },
+                stored: { btn: 'btn-stored', content: 'content-stored', color: 'emerald' },
+                mobile: { btn: 'btn-mobile', content: 'content-mobile', color: 'purple' }
+            };
+
+            for (const key in tabs) {
+                const isSelected = key === type;
+                const tab = tabs[key];
+                const btn = document.getElementById(tab.btn);
+                const content = document.getElementById(tab.content);
+
+                // Dynamically handle tab styling for both light and dark mode
+                const baseClasses = "flex-1 py-4 text-center transition";
+                const activeClasses = `text-${tab.color}-600 border-b-2 border-${tab.color}-500 dark:text-${tab.color}-400 dark:border-${tab.color}-400`;
+                const inactiveClasses = "text-slate-500 hover:bg-slate-50 dark:text-gray-400 dark:hover:bg-gray-700";
+
+                btn.className = isSelected 
+                    ? `${baseClasses} ${activeClasses}`
+                    : `${baseClasses} ${inactiveClasses}`;
+                
+                if (isSelected) {
+                    content.classList.remove('hidden');
+                } else {
+                    content.classList.add('hidden');
+                }
+            }
+        }
+
+        // --- Core Functions: Exchange Rate Simulator ---
+        const slider = document.getElementById('rate-slider');
+        const rateDisplay = document.getElementById('rate-display');
+        const statusBox = document.getElementById('status-box');
+        const statusText = document.getElementById('status-text');
+        const statusSlogan = document.getElementById('status-slogan');
+        const impactBody = document.getElementById('impact-body');
+        
+        function updateSimulation(val) {
+            const rate = parseInt(val);
+            rateDisplay.innerText = rate;
+
+            let status, colorClass, slogan, ntStatus, ntColor;
+            
+            if (rate < 30) {
+                status = "臺幣升值 (Appreciation) ⬆️";
+                colorClass = "bg-blue-100 text-blue-800 border-blue-300 dark:bg-blue-900 dark:text-blue-300 dark:border-blue-700";
+                slogan = "匯率數字 $\\downarrow$ $\\implies$ 臺幣戰鬥力 $\\uparrow$";
+                ntStatus = "升值 ⬆️";
+                ntColor = "bg-blue-500 text-white dark:bg-blue-400 dark:text-black";
+            } else if (rate > 30) {
+                status = "臺幣貶值 (Depreciation) ⬇️";
+                colorClass = "bg-rose-100 text-rose-800 border-rose-300 dark:bg-rose-900 dark:text-rose-300 dark:border-rose-700";
+                slogan = "匯率數字 $\\uparrow$ $\\implies$ 臺幣戰鬥力 $\\downarrow$";
+                ntStatus = "貶值 ⬇️";
+                ntColor = "bg-rose-500 text-white dark:bg-rose-400 dark:text-black";
+            } else {
+                status = "基準點 (Base) ↔️";
+                colorClass = "bg-slate-100 text-slate-800 border-slate-300 dark:bg-gray-700 dark:text-gray-100 dark:border-gray-600";
+                slogan = "請拖動滑桿，觀察影響！";
+                ntStatus = "穩定 ↔️";
+                ntColor = "bg-slate-500 text-white dark:bg-gray-500 dark:text-white";
+            }
+
+            statusBox.className = `mt-4 p-4 rounded-xl text-center transition-colors duration-300 border ${colorClass}`;
+            statusText.innerText = status;
+            statusSlogan.innerText = slogan;
+
+            updateImpactTable(rate, ntStatus, ntColor);
+            updateExchangeChartData(rate);
+        }
+
+        function updateImpactTable(rate, ntStatus, ntColor) {
+            let html = '';
+            
+            const createRow = (role, effect, reason, isGood) => {
+                const bg = isGood ? 'bg-green-50 dark:bg-green-900' : 'bg-rose-50 dark:bg-rose-900';
+                const text = isGood ? 'text-green-700 dark:text-green-300 font-bold' : 'text-rose-700 dark:text-rose-300 font-bold';
+                const icon = isGood ? '😊 利！' : '😭 弊！';
+                
+                return `
+                    <tr class="border-b transition hover:bg-slate-100 dark:hover:bg-gray-700">
+                        <td class="px-6 py-3 font-medium text-slate-900 dark:text-gray-50">${role}</td>
+                        <td class="px-6 py-3 text-center"><span class="px-3 py-1 rounded text-xs font-bold ${ntColor}">${ntStatus}</span></td>
+                        <td class="px-6 py-3 ${bg} ${text}">${icon}</td>
+                        <td class="px-6 py-3 text-slate-600 dark:text-gray-300 text-xs">${reason}</td>
+                    </tr>
+                `;
+            };
+
+            if (rate < 30) { // Appreciation: 利進口, 弊出口
+                html += createRow('進口商 (買外國貨)', '進口成本降低', '臺幣變強，買美金變便宜。', true);
+                html += createRow('出口商 (賣外國貨)', '換回臺幣變少', '賺的美金換回來的臺幣縮水了。', false);
+                html += createRow('出國旅遊的人', '旅遊划算', '臺幣變強，用少少的錢換到多多的外幣。', true);
+            } else if (rate > 30) { // Depreciation: 弊進口, 利出口
+                html += createRow('出口商 (賣外國貨)', '換回臺幣變多', '賺的美金換回更多臺幣，利潤增加。', true);
+                html += createRow('進口商 (買外國貨)', '進口成本提高', '臺幣變弱，買美金要花更多錢。', false);
+                html += createRow('出國旅遊的人', '旅費變貴', '臺幣變弱，換外幣不划算。', false);
+            } else {
+                 html = `<tr><td colspan="4" class="px-6 py-8 text-center text-slate-500 dark:text-gray-400 font-medium">匯率穩定在 30。請拖動上方滑桿來模擬變動。</td></tr>`;
+            }
+
+            impactBody.innerHTML = html;
+        }
+
+        // --- Core Functions: Chart.js Setup ---
+        
+        function getChartColors() {
+            const isDark = document.body.classList.contains('dark');
+            return {
+                base: isDark ? '#f3f4f6' : '#1e293b',
+                grid: isDark ? '#374151' : '#e2e8f0',
+                blue: isDark ? '#60a5fa' : '#3b82f6',
+                red: isDark ? '#fca5a5' : '#ef4444'
+            };
+        }
+
+        function initCharts() {
+            const colors = getChartColors();
+            // Inflation Chart (Horizontal Bar for comparison)
+            const ctxInflation = document.getElementById('inflationChart').getContext('2d');
+            inflationChartInstance = new Chart(ctxInflation, {
+                type: 'bar',
+                data: {
+                    labels: ['通膨前', '通膨後'],
+                    datasets: [{
+                        label: '100元購買力 (單位: 麵包數量)',
+                        data: [10, 5],
+                        backgroundColor: [colors.blue, colors.red],
+                        borderRadius: 5,
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            min: 0,
+                            max: 12,
+                            title: { display: true, text: '可購買的麵包數量 (假設值)', color: colors.base },
+                            ticks: { color: colors.base },
+                            grid: { color: colors.grid }
+                        },
+                        y: {
+                            ticks: { color: colors.base },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title: (context) => context[0].label,
+                                label: (context) => `購買力: ${context.raw} 個麵包`
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Exchange Rate Chart (Line Chart)
+            const ctxExchange = document.getElementById('exchangeChart').getContext('2d');
+            exchangeChartInstance = new Chart(ctxExchange, {
+                type: 'line',
+                data: {
+                    labels: ['過去 4 個月', '上個月', '本月', '模擬值'],
+                    datasets: [{
+                        label: '匯率走勢 (美金:臺幣)',
+                        data: [30, 30, 30, 30],
+                        borderColor: colors.blue,
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        fill: true,
+                        pointRadius: 5,
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            min: 24,
+                            max: 36,
+                            grid: { color: colors.grid },
+                            title: { display: true, text: 'NTD', color: colors.base },
+                            ticks: { color: colors.base }
+                        },
+                        x: {
+                            ticks: { color: colors.base },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `1 USD = ${context.raw} NTD`
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateExchangeChartData(currentRate) {
+            const colors = getChartColors();
+            const base = 30;
+            const diff = currentRate - base;
+            
+            const newData = [
+                base, 
+                base + (diff * 0.2), 
+                base + (diff * 0.5), 
+                currentRate
+            ];
+
+            exchangeChartInstance.data.datasets[0].data = newData;
+            
+            if (currentRate < 30) {
+                // Appreciation (Blue theme for Stronger NTD)
+                exchangeChartInstance.data.datasets[0].borderColor = colors.blue;
+                exchangeChartInstance.data.datasets[0].backgroundColor = 'rgba(96, 165, 250, 0.1)';
+            } else if (currentRate > 30) {
+                // Depreciation (Rose theme for Weaker NTD)
+                exchangeChartInstance.data.datasets[0].borderColor = colors.red;
+                exchangeChartInstance.data.datasets[0].backgroundColor = 'rgba(244, 63, 94, 0.1)';
+            } else {
+                exchangeChartInstance.data.datasets[0].borderColor = colors.blue;
+                exchangeChartInstance.data.datasets[0].backgroundColor = 'rgba(59, 130, 246, 0.1)';
+            }
+
+            exchangeChartInstance.update();
+        }
+
+        function updateChartTheme() {
+            const colors = getChartColors();
+            
+            // Update Inflation Chart
+            if (inflationChartInstance) {
+                inflationChartInstance.options.scales.x.title.color = colors.base;
+                inflationChartInstance.options.scales.x.ticks.color = colors.base;
+                inflationChartInstance.options.scales.x.grid.color = colors.grid;
+                inflationChartInstance.options.scales.y.ticks.color = colors.base;
+                inflationChartInstance.data.datasets[0].backgroundColor = [colors.blue, colors.red];
+                inflationChartInstance.update();
+            }
+
+            // Update Exchange Chart
+            if (exchangeChartInstance) {
+                exchangeChartInstance.options.scales.y.title.color = colors.base;
+                exchangeChartInstance.options.scales.y.ticks.color = colors.base;
+                exchangeChartInstance.options.scales.y.grid.color = colors.grid;
+                exchangeChartInstance.options.scales.x.ticks.color = colors.base;
+                // Update the data points based on the current rate to refresh colors
+                updateExchangeChartData(parseInt(slider.value)); 
+            }
+        }
+
+        // --- Dark Mode Logic ---
+        function applyTheme(isDark) {
+            const button = document.getElementById('toggle-dark');
+            if (isDark) {
+                document.body.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                button.innerText = '切換淺色模式';
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                button.innerText = '切換深色模式';
+            }
+            // Re-render charts to apply new colors
+            if (exchangeChartInstance || inflationChartInstance) updateChartTheme();
+        }
+
+        function toggleDarkMode() {
+            const isDark = document.body.classList.contains('dark');
+            applyTheme(!isDark);
+        }
+
+        // Event Listeners and Init
+        window.onload = function() {
+            // Apply theme from localStorage or system preference
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Initialize theme correctly first
+            const initialDark = (savedTheme === 'dark' || (!savedTheme && prefersDark));
+            applyTheme(initialDark); 
+
+            // Init core functionality
+            initFunctionMatrix();
+            initCharts();
+            updateSimulation(30); 
+            switchTab('credit');
+
+            // Set up event listeners
+            slider.addEventListener('input', (e) => updateSimulation(e.target.value));
+            document.getElementById('toggle-dark').addEventListener('click', toggleDarkMode);
+        };
+    </script>
+</body>
+</html>
