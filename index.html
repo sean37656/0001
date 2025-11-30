@@ -172,7 +172,7 @@
 
             <div class="bg-white rounded-xl shadow-lg border overflow-hidden mb-8 overflow-x-auto">
                 <table class="w-full text-left">
-                    <thead class="bg-slate-50 text-slate-500 uppercase text-sm">
+                    <thead class="bg-slate-50 text-slate-700 uppercase text-sm">
                         <tr>
                             <th class="px-6 py-3 w-1/4">功能核心定義</th>
                             <th class="px-6 py-3 w-1/4">關鍵詞 (速記)範例</th>
@@ -418,8 +418,8 @@
                 html += `
                     <tr class="border-b transition hover:bg-slate-100 dark:hover:bg-gray-700">
                         <td class="px-6 py-3 font-medium text-blue-700 dark:text-blue-400">${item.func}</td>
-                        <!-- 🟢 [字體修正]：將 text-slate-700 改為 text-slate-800，使其在淺色模式更深、更易讀 -->
-                        <td class="px-6 py-3 text-slate-800 dark:text-gray-300">${item.keyword} / <span class="font-mono">${item.example}</span></td>
+                        <!-- 🟢 [字體修正]：將 text-slate-800 改為 text-slate-900 並加上 font-medium，使其在淺色模式最清晰 -->
+                        <td class="px-6 py-3 text-slate-900 dark:text-gray-300 font-medium">${item.keyword} / <span class="font-mono">${item.example}</span></td>
                         <td class="px-6 py-3">
                             <button class="text-amber-600 dark:text-amber-400 font-bold text-sm bg-amber-100 dark:bg-amber-800 dark:hover:bg-amber-700 px-3 py-1 rounded-full hover:bg-amber-200 transition" 
                                 onclick="toggleTrap(this, ${index})">
