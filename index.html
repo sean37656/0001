@@ -7,6 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJ8K22J6g8x+M5E1X+N5j/3N2N+sF0r3bQo+jM3Xv5I5n4M4q5S0+r/5+d6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
         
@@ -112,29 +114,49 @@
 </head>
 <body class="text-slate-800 bg-slate-50">
 
-    <!-- Navbar: 包含章節導覽連結 -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <span class="text-2xl text-blue-600 font-extrabold">🏦</span>
                 <h1 class="text-xl font-black text-slate-800">國中公民 (翰林版) 三上五單元：重點筆記</h1>
             </div>
-            <!-- 章節導覽連結 (已保留) -->
-            <div class="hidden md:flex space-x-6 text-sm font-medium">
-                <a href="#section-i" class="nav-links text-slate-600 hover:text-blue-600 transition">貨幣本質與通膨</a>
-                <a href="#section-ii" class="nav-links text-slate-600 hover:text-blue-600 transition">塑膠貨幣防呆</a>
-                <a href="#section-iii" class="nav-links text-slate-600 hover:text-blue-600 transition">匯率模擬與口訣</a>
+            
+            <div class="flex items-center space-x-6">
+                
+                <div class="hidden md:flex space-x-6 text-sm font-medium">
+                    <a href="#section-i" class="nav-links text-slate-600 hover:text-blue-600 transition">貨幣本質與通膨</a>
+                    <a href="#section-ii" class="nav-links text-slate-600 hover:text-blue-600 transition">塑膠貨幣防呆</a>
+                    <a href="#section-iii" class="nav-links text-slate-600 hover:text-blue-600 transition">匯率模擬與口訣</a>
+                </div>
+                
+                <!-- 社交媒體按鈕區域 (已美化) -->
+                <div class="flex space-x-3 ml-2">
+                    
+                    <!-- Instagram 按鈕 -->
+                    <!-- 請將下方 href 內的網址換成您自己的 IG 連結 -->
+                    <a href="https://www.instagram.com/studynotes_tw" target="_blank" title="追蹤我的 Instagram" 
+                       class="group flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
+                        <i class="fa-brands fa-instagram text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+
+                    <!-- GitHub 按鈕 -->
+                    <!-- 請將下方 href 內的網址換成您自己的 GitHub 連結 -->
+                    <a href="https://github.com/sean37656" target="_blank" title="我的 GitHub 主頁" 
+                       class="group flex items-center justify-center w-10 h-10 rounded-full bg-slate-200 text-slate-700 hover:bg-slate-800 hover:text-white dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-white dark:hover:text-slate-900 transition-all duration-300 shadow-sm hover:shadow-md">
+                        <i class="fa-brands fa-github text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+
+                </div>
             </div>
+            
         </div>
     </nav>
 
-    <!-- Header/Hero -->
     <header class="bg-blue-600 text-white pt-16 pb-12 px-4 text-center">
         <div class="max-w-4xl mx-auto">
             <h1 class="text-4xl md:text-5xl font-black mb-3">國中公民 (翰林版) 三上五單元：重點筆記</h1>
             <p class="text-blue-100 text-lg md:text-xl font-light">完全涵蓋考試陷阱、數據分析與核心概念。透過互動，將筆記轉化為記憶！</p>
             
-            <!-- 僅保留深色模式切換按鈕 -->
             <div class="mt-4 flex justify-center gap-3">
                 <button id="toggle-dark" class="px-3 py-1 rounded bg-slate-800 text-white text-sm hover:bg-slate-700 transition">切換深色模式</button>
             </div>
@@ -143,14 +165,12 @@
 
     <main class="max-w-7xl mx-auto px-4 py-12 space-y-16">
 
-        <!-- I. 貨幣的本質與功能 -->
         <section id="section-i" class="scroll-mt-20">
             <div class="section-header border-blue-500">
                 <h2 class="text-2xl md:text-3xl font-bold">I. 貨幣的本質與功能</h2>
                 <p class="text-slate-600 mt-1">從功能核心定義到法定貨幣的價值來源，考試最基本的得分點。</p>
             </div>
 
-            <!-- Function Matrix -->
             <div class="bg-white rounded-xl shadow-lg border overflow-hidden mb-8">
                 <table class="w-full text-left">
                     <thead class="bg-slate-50 text-slate-500 uppercase text-sm">
@@ -161,12 +181,10 @@
                         </tr>
                     </thead>
                     <tbody id="function-matrix-body">
-                        <!-- Content dynamically generated via JS -->
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
 
-            <!-- Legal Tender & Inflation -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div class="bg-white p-6 rounded-xl shadow-md border h-full">
                     <h3 class="text-xl md:text-2xl font-bold text-amber-600 mb-4 flex items-center">
@@ -187,7 +205,6 @@
                         </li>
                     </ul>
                 </div>
-                <!-- Inflation Chart Simulation -->
                 <div class="bg-white p-4 rounded-xl shadow-md border">
                     <h3 class="text-xl font-semibold mb-3 text-center">通膨前後購買力模擬</h3>
                     <div class="chart-container">
@@ -200,7 +217,6 @@
             </div>
         </section>
 
-        <!-- II. 貨幣替代品：塑膠貨幣與電子支付 -->
         <section id="section-ii" class="scroll-mt-20">
             <div class="section-header border-amber-500">
                 <h2 class="text-2xl md:text-3xl font-bold">II. 貨幣替代品：塑膠貨幣與電子支付</h2>
@@ -208,7 +224,6 @@
             </div>
 
             <div class="bg-white rounded-xl shadow-lg border overflow-hidden">
-                <!-- Tabs -->
                 <div class="flex border-b border-slate-200 font-bold text-lg">
                     <button onclick="switchTab('credit')" id="btn-credit" class="flex-1 py-4 text-center text-blue-600 border-b-2 border-blue-500 transition">
                         💳 信用卡 (延後支付)
@@ -226,7 +241,6 @@
                         📢 核心觀念：這三者**皆非**法定貨幣！它們僅是支付工具，最終仍需以新臺幣結算。
                     </div>
 
-                    <!-- Credit Card Content -->
                     <div id="content-credit" class="block animate-fade-in space-y-4">
                         <h3 class="text-xl font-bold text-blue-600">本質：先享受，後付款 (延後支付)</h3>
                         <p class="text-slate-700">銀行先代墊款項，消費者需在指定日期還款。具備債務清償功能。</p>
@@ -242,7 +256,6 @@
                         </div>
                     </div>
 
-                    <!-- Stored Value Card Content -->
                     <div id="content-stored" class="hidden animate-fade-in space-y-4">
                         <h3 class="text-xl font-bold text-emerald-600">本質：先儲值，後消費 (預付制度)</h3>
                         <p class="text-slate-700">如悠遊卡、禮券。預先存入價值，消費時從中扣除。</p>
@@ -258,7 +271,6 @@
                         </div>
                     </div>
 
-                    <!-- Mobile Payment Content -->
                     <div id="content-mobile" class="hidden animate-fade-in space-y-4">
                         <h3 class="text-xl font-bold text-purple-600">本質：便利介面</h3>
                         <p class="text-slate-700">如 LINE Pay, Apple Pay。它只是將銀行帳戶或信用卡「綁定」的便利操作介面。</p>
@@ -271,7 +283,6 @@
             </div>
         </section>
 
-        <!-- III. 國際貿易與匯率 -->
         <section id="section-iii" class="scroll-mt-20">
             <div class="section-header border-rose-500">
                 <h2 class="text-2xl md:text-3xl font-bold">III. 國際貿易與匯率變動決策模擬</h2>
@@ -279,7 +290,6 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Controls & Logic -->
                 <div class="lg:col-span-1 space-y-6">
                     <div class="bg-white p-6 rounded-xl shadow-md border">
                         <h3 class="font-bold text-xl mb-4 text-rose-600">📉 匯率模擬控制 (1 USD = NTD)</h3>
@@ -311,9 +321,7 @@
                     </div>
                 </div>
 
-                <!-- Visualization & Impact Table -->
                 <div class="lg:col-span-2 space-y-6">
-                    <!-- Chart -->
                     <div class="bg-white p-4 rounded-xl shadow-md border">
                         <h3 class="text-xl font-semibold mb-3 text-center">NTD/USD 匯率走勢模擬</h3>
                         <div class="chart-container">
@@ -321,7 +329,6 @@
                         </div>
                     </div>
 
-                    <!-- Impact Table -->
                     <div class="bg-white rounded-xl shadow-md border overflow-hidden">
                         <table class="w-full text-sm text-left">
                             <thead class="text-xs text-slate-500 uppercase bg-slate-50">
@@ -333,15 +340,13 @@
                                 </tr>
                             </thead>
                             <tbody id="impact-body">
-                                <!-- Dynamic Content -->
-                            </tbody>
+                                </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Central Bank Trap Exclusion (已保留但無導覽按鈕) -->
         <section id="cb-trap" class="scroll-mt-20">
             <div class="section-header border-green-500">
                 <h2 class="text-2xl md:text-3xl font-bold">中央銀行職責排除陷阱</h2>
