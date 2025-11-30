@@ -118,7 +118,7 @@
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <span class="text-2xl text-blue-600 font-extrabold">🏦</span>
-                <h1 class="text-xl font-black text-slate-800">國中公民 (翰林版) 三上五單元：重點筆記</h1>
+                <h1 class="text-lg md:text-xl font-black text-slate-800">國中公民 (翰林版) 三上五單元：重點筆記</h1>
             </div>
             
             <div class="flex items-center space-x-6">
@@ -129,19 +129,14 @@
                     <a href="#section-iii" class="nav-links text-slate-600 hover:text-blue-600 transition">匯率模擬與口訣</a>
                 </div>
                 
-                <!-- 社交媒體按鈕區域 (已美化) -->
                 <div class="flex space-x-3 ml-2">
                     
-                    <!-- Instagram 按鈕 -->
-                    <!-- 請將下方 href 內的網址換成您自己的 IG 連結 -->
-                    <a href="https://www.instagram.com/studynotes_tw" target="_blank" title="追蹤我的 Instagram" 
+                    <a href="https://www.instagram.com/your_ig_handle/" target="_blank" title="追蹤我的 Instagram" 
                        class="group flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
                         <i class="fa-brands fa-instagram text-xl group-hover:scale-110 transition-transform"></i>
                     </a>
 
-                    <!-- GitHub 按鈕 -->
-                    <!-- 請將下方 href 內的網址換成您自己的 GitHub 連結 -->
-                    <a href="https://github.com/sean37656" target="_blank" title="我的 GitHub 主頁" 
+                    <a href="https://github.com/your_github_username" target="_blank" title="我的 GitHub 主頁" 
                        class="group flex items-center justify-center w-10 h-10 rounded-full bg-slate-200 text-slate-700 hover:bg-slate-800 hover:text-white dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-white dark:hover:text-slate-900 transition-all duration-300 shadow-sm hover:shadow-md">
                         <i class="fa-brands fa-github text-xl group-hover:scale-110 transition-transform"></i>
                     </a>
@@ -171,7 +166,7 @@
                 <p class="text-slate-600 mt-1">從功能核心定義到法定貨幣的價值來源，考試最基本的得分點。</p>
             </div>
 
-            <div class="bg-white rounded-xl shadow-lg border overflow-hidden mb-8">
+            <div class="bg-white rounded-xl shadow-lg border overflow-hidden mb-8 overflow-x-auto">
                 <table class="w-full text-left">
                     <thead class="bg-slate-50 text-slate-500 uppercase text-sm">
                         <tr>
@@ -224,7 +219,7 @@
             </div>
 
             <div class="bg-white rounded-xl shadow-lg border overflow-hidden">
-                <div class="flex border-b border-slate-200 font-bold text-lg">
+                <div class="flex flex-col md:flex-row border-b border-slate-200 font-bold text-lg">
                     <button onclick="switchTab('credit')" id="btn-credit" class="flex-1 py-4 text-center text-blue-600 border-b-2 border-blue-500 transition">
                         💳 信用卡 (延後支付)
                     </button>
@@ -299,7 +294,7 @@
                         
                         <input type="range" id="rate-slider" min="25" max="35" value="30" step="1" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer mb-4">
                         
-                        <div class="flex justify-between text-xs font-bold">
+                        <div class="flex justify-between text-sm font-bold">
                             <span class="text-blue-500">25 (數字小)</span>
                             <span class="text-rose-500">35 (數字大)</span>
                         </div>
@@ -329,7 +324,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-xl shadow-md border overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-md border overflow-hidden overflow-x-auto">
                         <table class="w-full text-sm text-left">
                             <thead class="text-xs text-slate-500 uppercase bg-slate-50">
                                 <tr>
@@ -419,7 +414,7 @@
                         <td class="px-6 py-3 font-medium text-blue-700 dark:text-blue-400">${item.func}</td>
                         <td class="px-6 py-3 text-slate-600 dark:text-gray-300">${item.keyword} / <span class="font-mono">${item.example}</span></td>
                         <td class="px-6 py-3">
-                            <button class="text-amber-600 dark:text-amber-400 font-bold text-xs bg-amber-100 dark:bg-amber-800 dark:hover:bg-amber-700 px-3 py-1 rounded-full hover:bg-amber-200 transition" 
+                            <button class="text-amber-600 dark:text-amber-400 font-bold text-sm bg-amber-100 dark:bg-amber-800 dark:hover:bg-amber-700 px-3 py-1 rounded-full hover:bg-amber-200 transition" 
                                 onclick="toggleTrap(this, ${index})">
                                 點我看陷阱 💡
                             </button>
@@ -532,9 +527,9 @@
                 return `
                     <tr class="border-b transition hover:bg-slate-100 dark:hover:bg-gray-700">
                         <td class="px-6 py-3 font-medium text-slate-900 dark:text-gray-50">${role}</td>
-                        <td class="px-6 py-3 text-center"><span class="px-3 py-1 rounded text-xs font-bold ${ntColor}">${ntStatus}</span></td>
+                        <td class="px-6 py-3 text-center"><span class="px-3 py-1 rounded text-sm font-bold ${ntColor}">${ntStatus}</span></td>
                         <td class="px-6 py-3 ${bg} ${text}">${icon}</td>
-                        <td class="px-6 py-3 text-slate-600 dark:text-gray-300 text-xs">${reason}</td>
+                        <td class="px-6 py-3 text-slate-600 dark:text-gray-300 text-sm">${reason}</td>
                     </tr>
                 `;
             };
