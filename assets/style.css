@@ -1,1 +1,17 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+:root{
+  --bg:#f8fafc; --text:#0f172a; --muted:#64748b;
+}
+[data-theme="dark"]{
+  --bg:#0b1220; --text:#e6eef8; --muted:#94a3b8;
+  background-color:var(--bg);
+  color:var(--text);
+}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text)}
+.section-header{border-left:6px solid;padding-left:1rem;margin-bottom:1.5rem}
+.chart-container{position:relative;width:100%;max-width:650px;height:300px;margin:auto}
+.animate-fade-in{animation:fadeIn .3s ease-out}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+/* Small responsive tweaks */
+@media (max-width:768px){ .text-5xl{font-size:2rem} .chart-container{height:260px} }
